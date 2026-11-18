@@ -7,10 +7,23 @@ public class FaqBot {
 
     // Standing rules for the model (the system instruction)
     private static final String RULES =
-            "You are the customer support assistant for ShopEasy. "
-            + "Answer using ONLY the information in the Context. "
-            + "If the answer is not in the Context, reply exactly: I don't know. "
-            + "Keep the answer to one or two sentences.";
+            "You are the customer support assistant for ShopEasy.\n"
+            + "Answer using ONLY the facts in the Context.\n"
+            + "When the Context states a rule about a group of things (for example electronics), "
+            + "apply it to items that clearly belong to that group.\n"
+            + "For yes/no questions, start with Yes or No and give the reason from the Context.\n"
+            + "Reply exactly 'I don't know.' only when the Context says nothing relevant to the question.\n"
+            + "Keep the answer to one or two sentences.\n\n"
+            + "Examples:\n"
+            + "Context: Batteries: Batteries carry a 6 month warranty.\n"
+            + "Question: Is my 2 month old battery covered?\n"
+            + "Answer: Yes, batteries carry a 6 month warranty.\n\n"
+            + "Context: Stickers: Stickers cannot be exchanged.\n"
+            + "Question: Can I exchange my unicorn stickers?\n"
+            + "Answer: No, stickers cannot be exchanged.\n\n"
+            + "Context: Batteries: Batteries carry a 6 month warranty.\n"
+            + "Question: Do you sell chargers?\n"
+            + "Answer: I don't know.";
 
     private final GeminiClient llm;
     private final FaqRetriever retriever;

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.Map;
 
 public class FaqRetriever {
 
@@ -14,6 +15,26 @@ public class FaqRetriever {
             "the", "an", "is", "are", "do", "does", "what", "how", "can", "my", "of", "to",
             "for", "in", "on", "and", "or", "it", "me", "you", "your", "with", "when",
             "will", "be", "at", "if", "there", "any", "have", "has", "about", "get");
+    
+    // Phrases customers use, mapped to the word the FAQ uses
+    private static final Map<String, String> SYNONYMS = Map.of(
+            "money back", "refund",
+            "get my money", "refund",
+            "send back", "return",
+            "give back", "return",
+            "send it back", "return");
+
+    // Adds the FAQ's own word when the question uses a known synonym
+    private String expandSynonyms(String question) {
+        String lower = question.toLowerCase();
+        StringBuilder expanded = new StringBuilder(question);
+        for (Map.Entry<String, String> entry : SYNONYMS.entrySet()) {
+            if (lower.contains(entry.getKey())) {
+                expanded.append(" ").append(entry.getValue());
+            }
+        }
+        return expanded.toString();
+    }
 
     private final List<String> chunks = new ArrayList<>();
 
@@ -42,7 +63,7 @@ public class FaqRetriever {
 
     // Returns up to topK chunks that share the most keywords with the question
     public List<String> retrieve(String question, int topK) {
-        Set<String> questionWords = keywords(question);
+    	Set<String> questionWords = keywords(expandSynonyms(question));
 
         record Scored(String chunk, int score) { }
         List<Scored> scored = new ArrayList<>();

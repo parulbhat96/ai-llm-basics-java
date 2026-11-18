@@ -2,7 +2,7 @@ Refunds: Customers can request a refund within 17 days of delivery. Refunds are 
 Shipping: Standard shipping takes 4 to 6 business days. Express shipping takes 2 business days and costs 250 rupees extra.
 Free delivery: Orders above 1999 rupees get free standard shipping.
 Cancellation: An order can be cancelled free of charge until it is packed, usually within 3 hours of placing it.
-Returns: Items must be unused and in the original packaging. Returns of opened electronics are not accepted.
+Returns: Items must be unused and in the original packaging. Returns of opened electronics are not accepted. Electronics means any device that runs on a battery or plugs into a power outlet, for example laptops, phones, tablets and headphones.
 Support hours: The support team is available Monday to Saturday, 9 AM to 7 PM IST.
 Payment methods: ShopEasy accepts credit cards, debit cards, UPI and cash on delivery for orders up to 5000 rupees.
 Loyalty points: Customers earn 2 loyalty points for every 100 rupees spent. 100 points are worth 50 rupees.
